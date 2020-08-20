@@ -1,48 +1,23 @@
 <template>
     <div id="app">
-        <router-view></router-view>
-        <tab-bar>
-            <!-- 导航栏组件的插槽 -->
-            <!-- 用户点击传入地址  isActiveColor可控制活跃主题颜色-->
-            <tab-bar-item path='/home'>
-                <!-- 导航栏内小组件插槽填的内容 -->
-                <img slot="item-icon_active" src="~assets/img/tabbar/home_active.svg" alt="">
-                <img slot="item-icon" src="~assets/img/tabbar/home.svg" alt="">
-                <div slot="item-text">首页</div>
-            </tab-bar-item>
-            <tab-bar-item path='/category'>
-                <img slot="item-icon_active" src="~assets/img/tabbar/category_active.svg" alt="">
-                <img slot="item-icon" src="~assets/img/tabbar/category.svg" alt="">
-                <div slot="item-text">菜单</div>
-            </tab-bar-item>
-            <tab-bar-item path='/shopcart'>
-                <img slot="item-icon_active" src="~assets/img/tabbar/shopcart_active.svg" alt="">
-                <img slot="item-icon" src="~assets/img/tabbar/shopcart.svg" alt="">
-                <div slot="item-text">购物车</div>
-            </tab-bar-item>
-            <tab-bar-item path='/profile'>
-                <img slot="item-icon_active" src="~assets/img/tabbar/profile_active.svg" alt="">
-                <img slot="item-icon" src="~assets/img/tabbar/profile.svg" alt="">
-                <div slot="item-text">用户</div>
-            </tab-bar-item>
-        </tab-bar>
+        <keep-alive>
+            <router-view></router-view>
+        </keep-alive>
+        <main-tabbar></main-tabbar>
     </div>
 </template>
 
 <script>
-import TabBar from 'components/common/tabbar/TabBar';
-import TabBarItem from 'components/common/tabbar/TabBarItem';
+    import MainTabbar from 'components/contnent/mainTabbar/MainTabbar'
 
-export default {
-    name: 'App',
-    components: {
-        TabBar,
-        TabBarItem
+    export default {
+        name: 'App',
+        components: {
+            MainTabbar,
+        }
     }
-}
-
 </script>
 
 <style>
-@import "~assets/css/base.css";
+
 </style>
