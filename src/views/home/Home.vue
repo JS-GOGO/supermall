@@ -96,7 +96,7 @@
         },
         mounted() {
             //对重新加载可滚动高度进行防抖
-            const refresh = debounce(this.$refs.scroll.refresh, 20)
+            const refresh = debounce(this.$refs.scroll.refresh, 1000)
                 // 图片加载完,刷新可滚动高度
             this.$bus.$on('itemImageLoad', () => {
                 refresh()
@@ -141,7 +141,7 @@
             },
             //超过固定高度显示回到顶部按钮
             contentScroll(position) {
-                this.isShowScrollTop = (-position.y) > -1000;
+                this.isShowScrollTop = (-position.y) > 1000;
                 this.isTabControlFixed = (-position.y) > this.tabControlTop
             },
             //上拉加载更多商品数据,需要监听每一个加载的img加载完成
@@ -159,7 +159,7 @@
             */
             getHomeMultidata() {
                 getHomeMultidata().then(res => {
-                    // console.log(res);
+                    console.log(res);
                     this.banners = res.data.banner.list;
                     this.recommends = res.data.recommend.list;
                 })
