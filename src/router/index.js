@@ -2,10 +2,16 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
-import Home from "views/home/Home"
-import Category from "views/category/Category"
-import Profile from "views/profile/Profile"
-import Shopcart from "views/shopcart/Shopcart"
+const Home = () =>
+    import ('views/home/Home')
+const Category = () =>
+    import ('views/category/Category')
+const Shopcart = () =>
+    import ('views/shopcart/Shopcart')
+const Profile = () =>
+    import ('views/profile/Profile')
+const Detail = () =>
+    import ('views/detail/Detail')
 
 const routes = [{
         path: '/',
@@ -22,19 +28,16 @@ const routes = [{
     }, {
         path: '/profile',
         component: Profile
-    },
+    }, {
+        path: '/detail',
+        component: Detail
+    }
 
 ]
 
 const router = new VueRouter({
     routes,
     mode: 'history',
-    components: {
-        Home,
-        Category,
-        Profile,
-        Shopcart,
-    }
 })
 
 export default router

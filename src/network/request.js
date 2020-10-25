@@ -3,30 +3,32 @@
 import axios from 'axios';
 // config 是传入的地址，成功、失败需返回的信息封装的对象
 
+
 export function request(config) {
     // 1.创建axios实例  
     const instance = axios.create({
         //配置默认地址
-        baseURL: 'http://152.136.185.210:8000/api/z8',
+        baseURL: 'http://152.136.185.210:8000/api/w6',
         //默认超时报错
         timeout: 5000,
     });
 
+
     // 2.axios的拦截器
-    // 2.1.请求拦截的作用
+    // 2.1.对请求的拦截
     instance.interceptors.request.use(config => {
         return config
     }, err => {
         // console.log(err);
     })
 
-    // 2.2.响应拦截
+    // 2.2.对响应的拦截
     instance.interceptors.response.use(res => {
         return res.data
     }, err => {
         console.log(err);
     })
 
-    //4.返回调用的实例（axios是一个promise对象，外部.then调用）
+    //4.返回调用的实例（axios原本就是一个promise对象，直接返回出去，外部.then调用）
     return instance(config);
 }

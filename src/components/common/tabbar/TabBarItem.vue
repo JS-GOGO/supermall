@@ -16,57 +16,56 @@
 </template>
 
 <script>
-
-
-
-export default {
-    name: "TarBar",
-    //父子通过组件传值
-    props: {
-        path: String,
-        isActiveColor: {
-            type: String,
-            default: 'red'
-        }
-    },
-    data() {
-        return {
-            active: false
-        }
-    },
-    computed: {
-        isActive() {
-            // 判断当前活跃路由的path和传入的path是否一样
-            return this.$route.path.indexOf(this.path) !== -1;
+    export default {
+        props: {
+            // 接收地址
+            path: String,
+            isActiveColor: {
+                type: String,
+                default: 'red'
+            }
         },
-        isActiveStyle() {
-            //根据传值的方式改变字体样式
-            return this.isActive ? { color: this.isActiveColor } : {};
+        data() {
+            return {
+                active: false
+            }
+        },
+        computed: {
+            isActive() {
+                // 判断当前活跃路由的path和传入的path是否一样
+                return this.$route.path.indexOf(this.path) !== -1;
+            },
+            isActiveStyle() {
+                //根据传值的方式改变字体样式
+                return this.isActive ? {
+                    color: this.isActiveColor
+                } : {};
+            }
+        },
+        methods: {
+            itemRouter() {
+                //跳转地址
+                // console.log(this.path);
+                this.$router.replace(this.path).catch(err => {})
+            }
         }
-    },
-    methods: {
-        itemRouter() {
-            // console.log(this.path);
-            this.$router.push(this.path).catch(err => { })
-        }
-    }
 
-}
+    }
 </script>
 
 <style scoped>
-.tab-bar-item {
-    flex: 1;
-    text-align: center;
-    height: 49px;
-    font-size: 14px;
-}
-
-.tab-bar-item img {
-    width: 24px;
-    height: 24px;
-    margin-top: 3px;
-    vertical-align: middle;
-    margin-bottom: 2px;
-}
+    .tab-bar-item {
+        flex: 1;
+        text-align: center;
+        height: 49px;
+        font-size: 14px;
+    }
+    
+    .tab-bar-item img {
+        width: 24px;
+        height: 24px;
+        margin-top: 3px;
+        vertical-align: middle;
+        margin-bottom: 2px;
+    }
 </style>

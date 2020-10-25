@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // var obj1 = {
+    //         name: 'a',
+    //         age: 18
+    //     }
+    // var obj2 = {
+    //     name: 'b',
+    //     age: 19
+    // }
+    // var obj3 = {
+    //     name: 'c',
+    //     age: 20
+    // }
+    // var obj4 = {
+    //     name: 'd',
+    //     age: 21
+    // }
+
+    var arr = [{
+        name: 'a',
+        age: 18
+    }, {
+        name: 'b',
+        age: 19
+    }, {
+        name: 'c',
+        age: 20
+    }]
+
+    // for (let i of arr) {
+    //     if (i.age == obj1.age) {
+    //         console.log(obj1);
+    //     } else {
+    //         console.log('没找到');
+    //     }
+    // }
+    var oldInfo = arr[1];
+    oldInfo.age = 300;
+    console.log(arr[1]);
+</script>
+
+</html>

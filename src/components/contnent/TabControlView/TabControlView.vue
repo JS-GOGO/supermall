@@ -29,6 +29,7 @@
         methods: {
             //控制显示那一个tabControl小item
             itemClick(index) {
+                //点击时改变currentIndex值为当前点击的index值，index的值来自循环
                 this.currentIndex = index
                 this.$emit('tabClick', index)
             }

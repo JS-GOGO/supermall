@@ -5,24 +5,24 @@
 </template>
 
 <script>
-export default {
-    name: "BackTop",
-    data() {
-        return {
-        }
-    },
-}
+    export default {
+        name: "BackTop",
+        data() {
+            return {}
+        },
+    }
 </script>
 
-<style  scoped>
-.back-top {
-    position: fixed;
-    right: 8px;
-    bottom: 55px;
-}
-
-.back-top img {
-    width: 43px;
-    height: 43px;
-}
+<style scoped>
+    .back-top {
+        position: absolute;
+        right: 8px;
+        bottom: 55px;
+        z-index: 9;
+    }
+    
+    .back-top img {
+        width: 43px;
+        height: 43px;
+    }
 </style>
